@@ -5,106 +5,106 @@ import time
 import os
 
 # Function untuk publish data
-def publish(nama, berat, jenis_paket):
+def publish(nama, berat, paket):
     # IP broker yang akan dituju
-    ip_broker = 'localhost'
+    ip = 'localhost'
     # Buat client baru
     client = mqtt.Client('Bojong', clean_session=False)
     # Buat koneksi ke broker
-    client.connect(ip_broker, port=2222)
+    client.connect(ip, port=2222)
     # Proses komunikasi
     client.loop_start()
     print('')
-    print('Melakukan publishing data terhadap subscriber')
+    print('Melakukan publishing data kepada subscriber')
     time.sleep(3)
     print('')
 
-    # Waktu pengajuan cucian
-    t = datetime.datetime.now()
-    TW_Pengajuan = str(t.strftime('%d-%m-%y')) + \
-        ' ('+str(t.strftime('%H:%M:%S'))+') '
+    # waktu pengajuan cucian
+    waktu_pengajuan = datetime.datetime.now()
+    waktu_pengajuan_str = str(waktu_pengajuan.strftime('%d-%m-%y')) + \
+        ' ('+str(waktu_pengajuan.strftime('%H:%M:%S'))+') '
 
-    # Waktu penjemputan cucian Laundry Bojong
-    plus_minutes = t + datetime.timedelta(minutes=10)
-    Penjemputan_Cucian = str(plus_minutes.strftime(
-        '%d-%m-%y')) + ' ('+str(plus_minutes.strftime('%H:%M:%S'))+') '
+    # waktu penjemputan cucian Laundry Bojong
+    waktu_pengajuan_jemput = waktu_pengajuan + datetime.timedelta(minutes=10)
+    waktu_pengajuan_jemput_str = str(waktu_pengajuan_jemput.strftime(
+        '%d-%m-%y')) + ' ('+str(waktu_pengajuan_jemput.strftime('%H:%M:%S'))+') '
 
-    # Waktu Pengembalian cucian Laundry Bojong
-    # Waktu 3 hari 10 menit setelah penjemputan cucian
-    if jenis_paket == 'Ekonomis':
-        plus_hours = t + \
+    # waktu Pengembalian cucian Laundry Bojong
+    # waktu 3 hari 5 menit setelah penjemputan cucian
+    if paket == 'Hemat':
+        waktu_pengembalian = waktu_pengajuan + \
             datetime.timedelta(
-                days=3) + datetime.timedelta(minutes=10) + datetime.timedelta(minutes=10)
-        Pengembalian_Cucian = str(plus_hours.strftime(
-            '%d-%m-%y')) + ' ('+str(plus_hours.strftime('%H:%M:%S'))+') '
-    # Waktu 2 hari 15 menit setelah penjemputan cucian
-    elif jenis_paket == 'Standar':
-        plus_hours = t + \
+                days=3) + datetime.timedelta(minutes=5) + datetime.timedelta(minutes=10)
+        waktu_pengembalian_str = str(waktu_pengembalian.strftime(
+            '%d-%m-%y')) + ' ('+str(waktu_pengembalian.strftime('%H:%M:%S'))+') '
+    # waktu 2 hari 10 menit setelah penjemputan cucian
+    elif paket == 'Standar':
+        waktu_pengembalian = waktu_pengajuan + \
             datetime.timedelta(
-                days=2) + datetime.timedelta(minutes=15) + datetime.timedelta(minutes=10)
-        Pengembalian_Cucian = str(plus_hours.strftime(
-            '%d-%m-%y')) + ' ('+str(plus_hours.strftime('%H:%M:%S'))+') '
-    # Waktu 1 hari 10 menit setelah penjemputan cucian
-    elif jenis_paket == 'Kilat':
-        plus_hours = t + \
+                days=2) + datetime.timedelta(minutes=10) + datetime.timedelta(minutes=10)
+        waktu_pengembalian_str = str(waktu_pengembalian.strftime(
+            '%d-%m-%y')) + ' ('+str(waktu_pengembalian.strftime('%H:%M:%S'))+') '
+    # waktu 1 hari 5 menit setelah penjemputan cucian
+    elif paket == 'Cepat':
+        waktu_pengembalian = waktu_pengajuan + \
             datetime.timedelta(
-                days=1) + datetime.timedelta(minutes=10) + datetime.timedelta(minutes=10)
-        Pengembalian_Cucian = str(plus_hours.strftime(
-            '%d-%m-%y')) + ' ('+str(plus_hours.strftime('%H:%M:%S'))+') '
+                days=1) + datetime.timedelta(minutes=5) + datetime.timedelta(minutes=10)
+        waktu_pengembalian_str = str(waktu_pengembalian.strftime(
+            '%d-%m-%y')) + ' ('+str(waktu_pengembalian.strftime('%H:%M:%S'))+') '
 
     # Berat
-    float_berat = float(berat)
-    str_berat = str(float_berat) + ' Kg'
+    berat_float = float(berat)
+    berat_str = str(berat_float) + ' Kg'
 
     # Harga Laundry Bojong
-    # Jika menggunakan paket Ekonomis
-    if jenis_paket == 'Ekonomis':
-        # Berat kurang dari atau sama dengan 1kg = berat x 7000 + 500
-        if float_berat <= 1:
-            int_harga = int(float_berat * 7000)
-            str_harga = str(int_harga) + ' + 500 = ' + str((int_harga) + 500)
-        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 10000 + 1000
-        elif float_berat > 1 and float_berat <= 2:
-            int_harga = int(float_berat * 10000)
-            str_harga = str(int_harga) + ' + 1000 = ' + str((int_harga) + 1000)
-        # Berat lebih dari 2kg = berat x 12000 + 1500
+    # Jika menggunakan paket Hemat
+    if paket == 'Hemat':
+        # Berat kurang dari atau sama dengan 1kg = berat x 6000 + 500
+        if berat_float <= 1:
+            harga_int = int(berat_float * 6000)
+            harga_str = str(harga_int) + ' + 500 = ' + str((harga_int) + 500)
+        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 9000 + 1000
+        elif berat_float > 1 and berat_float <= 2:
+            harga_int = int(berat_float * 9000)
+            harga_str = str(harga_int) + ' + 1000 = ' + str((harga_int) + 1000)
+        # Berat lebih dari 2kg = berat x 11000 + 1500
         else:
-            int_harga = int(float_berat * 12000)
-            str_harga = str(int_harga) + ' + 1500 = ' + str((int_harga) + 1500)
+            harga_int = int(berat_float * 11000)
+            harga_str = str(harga_int) + ' + 1500 = ' + str((harga_int) + 1500)
 
     # Jika menggunakan paket Standar
-    elif jenis_paket == 'Standar':
-        # Berat kurang dari atau sama dengan 1kg = berat x 8000 + 1000
-        if float_berat <= 1:
-            int_harga = int(float_berat * 8000)
-            str_harga = str(int_harga) + ' + 1000 = ' + str((int_harga) + 1000)
-        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg =  berat x 11000 + 1500
-        elif float_berat > 1 and float_berat <= 2:
-            int_harga = int(float_berat * 11000)
-            str_harga = str(int_harga) + ' + 1500 = ' + str((int_harga) + 1500)
-        # Berat lebih dari 2kg = berat x 13000 + 2000
+    elif paket == 'Standar':
+        # Berat kurang dari atau sama dengan 1kg = berat x 7000 + 1000
+        if berat_float <= 1:
+            harga_int = int(berat_float * 7000)
+            harga_str = str(harga_int) + ' + 1000 = ' + str((harga_int) + 1000)
+        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg =  berat x 10000 + 1500
+        elif berat_float > 1 and berat_float <= 2:
+            harga_int = int(berat_float * 10000)
+            harga_str = str(harga_int) + ' + 1500 = ' + str((harga_int) + 1500)
+        # Berat lebih dari 2kg = berat x 12000 + 2000
         else:
-            int_harga = int(float_berat * 13000)
-            str_harga = str(int_harga) + ' + 2000 = ' + str((int_harga) + 2000)
+            harga_int = int(berat_float * 12000)
+            harga_str = str(harga_int) + ' + 2000 = ' + str((harga_int) + 2000)
 
-    # Jika menggunakan paket Kilat
-    elif jenis_paket == 'Kilat':
-        # Berat kurang dari atau sama dengan 1kg = berat x 9000 + 1500
-        if float_berat <= 1:
-            int_harga = int(float_berat * 9000)
-            str_harga = str(int_harga) + ' + 1500 = ' + str((int_harga) + 1500)
-        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 12000 + 2000
-        elif float_berat > 1 and float_berat <= 2:
-            int_harga = int(float_berat * 12000)
-            str_harga = str(int_harga) + ' + 2000 = ' + str((int_harga) + 2000)
-        # Berat lebih dari 2kg = berat x 14000 + 2500
+    # Jika menggunakan paket Cepat
+    elif paket == 'Cepat':
+        # Berat kurang dari atau sama dengan 1kg = berat x 10000 + 1500
+        if berat_float <= 1:
+            harga_int = int(berat_float * 10000)
+            harga_str = str(harga_int) + ' + 1500 = ' + str((harga_int) + 1500)
+        # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 13000 + 2000
+        elif berat_float > 1 and berat_float <= 2:
+            harga_int = int(berat_float * 13000)
+            harga_str = str(harga_int) + ' + 2000 = ' + str((harga_int) + 2000)
+        # Berat lebih dari 2kg = berat x 15000 + 2500
         else:
-            int_harga = int(float_berat * 14000)
-            str_harga = str(int_harga) + ' + 2500 = ' + str((int_harga) + 2500)
+            harga_int = int(berat_float * 15000)
+            harga_str = str(harga_int) + ' + 2500 = ' + str((harga_int) + 2500)
 
     # Mempublish data ke client
-    client.publish('datalaundry', ''+nama+'|'+TW_Pengajuan+'|'+str_berat+'|'+jenis_paket +
-                   '|'+Penjemputan_Cucian+'|'+Pengembalian_Cucian+'|'+str_harga+'', qos=1, retain=False)
+    client.publish('datalaundry', ''+nama+'|'+waktu_pengajuan_str+'|'+berat_str+'|'+paket +
+                   '|'+waktu_pengajuan_jemput_str+'|'+waktu_pengembalian_str+'|'+harga_str+'', qos=1, retain=False)
 
     client.loop_stop()
 
@@ -114,17 +114,21 @@ loop = True
 while loop:
     os.system('cls')
     print('')
-    print('+------------------------------------------+')
-    print('|        Masukan data Laundry Bojong       |')
-    print('+------------------------------------------+')
+    print('+-----------------------------------+')
+    print('|            Tipe Paket             |')
+    print('|-----------------------------------|')
+    print('| 1. Paket Hemat                    |')
+    print('| 2. Paket Standar                  |')
+    print('| 3. Paket Cepat                    |')
+    print('+-----------------------------------+')
     # 1. Nama
     Nama = input('Nama        : ')
     # 2. Berat
     Berat = input('Berat       : ')
     # 3. Jenis Paket
-    Jenis_Paket = input('Jenis Paket : ')
-    if Jenis_Paket == 'Ekonomis' or Jenis_Paket == 'Standar' or Jenis_Paket == 'Kilat':
-        publish(Nama, Berat, Jenis_Paket)
+    paket = input('Jenis Paket : ')
+    if paket == 'Hemat' or paket == 'Standar' or paket == 'Cepat':
+        publish(Nama, Berat, paket)
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
@@ -137,9 +141,9 @@ while loop:
     else:
         time.sleep(3)
         print('')
-        print('+-----------------------------------+')
-        print('|       Mohon maaf, input salah     |')
-        print('+-----------------------------------+')
+        print('+------------------------------------------------+')
+        print('|       Maaf, input yang Anda masukkan salah     |')
+        print('+------------------------------------------------+')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
