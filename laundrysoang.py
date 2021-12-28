@@ -54,7 +54,7 @@ def publish(name, weight, package_type ):
 
     # Berat cucian
     float_weight = float(weight)
-    str_weight = str(float_weight) + ' Kg'
+    str_weight = str(float_weight) + 'Kg'
 
     # Harga Laundry Soang
     # Jika menggunakan paket Hemat
