@@ -115,7 +115,7 @@ while loop:
     os.system('cls')
     print('')
     print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
-    print('#              Masukan data !              #')
+    print('#              Masukan data               #')
     print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
     # 1. Nama
     Name = input('Nama        : ')
@@ -138,11 +138,11 @@ while loop:
         time.sleep(3)
         print('')
         print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
-        print('#     ..    input salah!!    ..     #')
+        print('#     ..    input salah!    ..      #')
         print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
-            time.sleep(3)
+            time.sleep(3)S
             loop = True
         else:
             loop = False
