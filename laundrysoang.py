@@ -138,7 +138,7 @@ while loop:
         time.sleep(3)
         print('')
         print('[===================================]')
-        print('[       Mohon maaf, input salah     ]')
+        print('[            input salah            ]')
         print('[-----------------------------------]')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
