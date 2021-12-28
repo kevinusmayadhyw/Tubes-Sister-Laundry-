@@ -115,7 +115,7 @@ while loop:
     os.system('cls')
     print('')
     print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
-    print('#              Masukan data !              #')
+    print('#              Masukan data               #')
     print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
     # 1. Nama
     Name = input('Nama        : ')
