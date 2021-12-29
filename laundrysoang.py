@@ -79,7 +79,7 @@ def publish(name, weight, package_type ):
             price_int = int(float_weight * 6000)
             price_str = str(price_int) + ' + 1000 = ' + str((price_int) + 1000)
         # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 9000 + 1500
-        elif float_weight > 1 and float_berat <= 2:
+        elif float_weight > 1 and float_weight <= 2:
             price_int = int(float_weight * 9000)
             price_str = str(price_int) + ' + 1500 = ' + str((price_int) + 1500)
         # Berat lebih dari 2kg = berat x 11000 + 2000
@@ -124,7 +124,7 @@ while loop:
     # 3. Jenis Paket
     package_type = input('Jenis Paket : ')
     if package_type == 'Hemat' or package_type == 'Standar' or package_type == 'Cepat':
-        publish(Nama, weight, package_type)
+        publish(Name, weight, package_type)
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
@@ -142,7 +142,7 @@ while loop:
         print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
-            time.sleep(3)S
+            time.sleep(3)
             loop = True
         else:
             loop = False
