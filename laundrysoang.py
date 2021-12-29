@@ -124,7 +124,7 @@ while loop:
     # 3. Jenis Paket
     package_type = input('Jenis Paket : ')
     if package_type == 'Hemat' or package_type == 'Standar' or package_type == 'Cepat':
-        publish(Name, weight, package_type)
+        publish(Nama, weight, package_type)
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
