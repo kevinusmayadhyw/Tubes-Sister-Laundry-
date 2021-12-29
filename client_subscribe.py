@@ -1,8 +1,8 @@
-# Library
 import paho.mqtt.client as mqtt
 import time
 from prettytable import PrettyTable
 from IPython.display import clear_output
+from tabulate import tabulate
 import os
 
 def laundrybojong():
@@ -24,7 +24,7 @@ def laundrybojong():
         print("====================================================================================================================================================")
         print("==                                                                Data Laundry Bojong                                                             ==")
         print("====================================================================================================================================================")
-        no = range(1, len(data)+1)
+        no = range(1, len(databojong)+1)
         print("")
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
         print(tabulate(data, header, tablefmt='fancy_grid', showindex=no))

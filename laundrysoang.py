@@ -103,7 +103,7 @@ def publish(name, weight, package_type ):
             price_str = str(price_int) + ' + 2500 = ' + str((price_int) + 2500)
 
     # Melakukan publish data ke client
-    client.publish('datalaundry', ''+name+'|'+submission+'|'+str_weight+'|'+ package_type +
+    client.publish('datalaundry', ''+Nama+'|'+submission+'|'+str_weight+'|'+ package_type +
                    '|'+laundry_pickup+'|'+Pengembalian_Cucian+'|'+price_str+'', qos=1, retain=False)
 
     client.loop_stop()
@@ -118,7 +118,7 @@ while loop:
     print('#              Masukan data               #')
     print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
     # 1. Nama
-    Name = input('Nama        : ')
+    Nama = input('Nama        : ')
     # 2. Berat
     weight = input('Berat       : ')
     # 3. Jenis Paket
