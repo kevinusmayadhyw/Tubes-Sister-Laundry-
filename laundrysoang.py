@@ -79,7 +79,7 @@ def publish(name, weight, package_type ):
             price_int = int(float_weight * 6000)
             price_str = str(price_int) + ' + 1000 = ' + str((price_int) + 1000)
         # Berat lebih dari 1kg dan kurang dari atau sama dengan 2kg = berat x 9000 + 1500
-        elif float_weight > 1 and float_berat <= 2:
+        elif float_weight > 1 and float_weight <= 2:
             price_int = int(float_weight * 9000)
             price_str = str(price_int) + ' + 1500 = ' + str((price_int) + 1500)
         # Berat lebih dari 2kg = berat x 11000 + 2000
