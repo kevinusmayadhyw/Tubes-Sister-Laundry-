@@ -195,7 +195,7 @@ def publish(nama, berat, tipe_paket):
     # Mempublish data ke client
     client.publish('datalaundry', ''+'Bojong'+'|'+nama+'|'+TW_Pengajuan+'|'+str_berat+'|'+tipe_paket +
                    '|'+jemput_Cucian+'|'+Pengembalian_Cucian+'|'+str_harga+'', qos=1, retain=False)
-    client.publish('datalaundry', ''+'Soang'+'|'+nama+'|'+TW_Pengajuan+'|'+str_berat+'|'+ +
+    client.publish('datalaundry', ''+'Soang'+'|'+nama+'|'+TW_Pengajuan+'|'+str_berat+'|'+tipe_paket +
                    '|'+jemput_Cucian_t+'|'+Pengembalian_Cucian_t+'|'+str_harga_t+'', qos=1, retain=False)
     client.loop_stop()
 

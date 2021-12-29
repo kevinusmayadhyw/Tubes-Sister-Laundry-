@@ -27,7 +27,7 @@ def laundrybojong():
         no = range(1, len(databojong)+1)
         print("")
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
-        print(tabulate(data, header, tablefmt='fancy_grid', showindex=no))
+        print(tabulate(databojong, header, tablefmt='fancy_grid', showindex=no))
 
     broker_address = 'localhost'
     client = mqtt.Client('laundrybojong', clean_session=True)
