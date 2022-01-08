@@ -7,7 +7,7 @@ import os
 # Function untuk publish data
 def publish(nama, berat, paket):
     # IP broker yang akan dituju
-    ip = 'localhost'
+    ip = '26.106.194.199'
     # Buat client baru
     client = mqtt.Client('Bojong', clean_session=False)
     # Buat koneksi ke broker
@@ -115,19 +115,22 @@ while loop:
     os.system('cls')
     print('')
     print('+-----------------------------------+')
-    print('|           Masukkan data           |')
+    print('|       Inputkan data laundry       |')
     print('+-----------------------------------+')
-    print('|            Tipe Paket:            |')
-    print('| 1. Paket Hemat                    |')
-    print('| 2. Paket Standar                  |')
-    print('| 3. Paket Cepat                    |')
-    print('+-----------------------------------+')
-    # 1. Nama
+     # 1. Nama
     Nama = input('Nama        : ')
     # 2. Berat
     Berat = input('Berat       : ')
     # 3. Jenis Paket
+    print('+-----------------------------------+')
+    print('|            Tipe Paket             |')
+    print('|-----------------------------------|')
+    print('| 1. Paket Hemat                    |')
+    print('| 2. Paket Standar                  |')
+    print('| 3. Paket Cepat                    |')
+    print('+-----------------------------------+')
     paket = input('Jenis Paket : ')
+
     if paket == 'Hemat' or paket == 'Standar' or paket == 'Cepat':
         publish(Nama, Berat, paket)
         pil = input('Coba lagi? [Y/n] ')
@@ -138,13 +141,13 @@ while loop:
             loop = False
             time.sleep(3)
             print('')
-            print('Keluar dari program...')
+            print('Program Selesai . . . . .')
     else:
         time.sleep(3)
         print('')
-        print('+------------------------------------------------+')
-        print('|       Maaf, input yang Anda masukkan salah     |')
-        print('+------------------------------------------------+')
+        print('+-----------------------------------+')
+        print('|       Mohon maaf, input salah     |')
+        print('+-----------------------------------+')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
@@ -153,4 +156,4 @@ while loop:
             loop = False
             time.sleep(3)
             print('')
-            print('Program berhenti...')
+            print('Program Selesai...')

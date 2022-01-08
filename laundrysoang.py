@@ -114,14 +114,21 @@ loop = True
 while loop:
     os.system('cls')
     print('')
-    print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
-    print('#              Masukan data               #')
-    print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
+    print('+-----------------------------------+')
+    print('|       Inputkan data laundry       |')
+    print('+-----------------------------------+')
     # 1. Nama
     Nama = input('Nama        : ')
     # 2. Berat
     weight = input('Berat       : ')
     # 3. Jenis Paket
+    print('+-----------------------------------+')
+    print('|            Tipe Paket             |')
+    print('|-----------------------------------|')
+    print('| 1. Paket Hemat                    |')
+    print('| 2. Paket Standar                  |')
+    print('| 3. Paket Cepat                    |')
+    print('+-----------------------------------+')
     package_type = input('Jenis Paket : ')
     if package_type == 'Hemat' or package_type == 'Standar' or package_type == 'Cepat':
         publish(Nama, weight, package_type)
@@ -133,13 +140,13 @@ while loop:
             loop = False
             time.sleep(3)
             print('')
-            print('Keluar dari program...')
+            print('Program Selesai . . . . .')
     else:
         time.sleep(3)
         print('')
-        print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
-        print('#     ..    input salah!    ..      #')
-        print('#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#')
+        print('+-----------------------------------+')
+        print('|       Mohon maaf, input salah     |')
+        print('+-----------------------------------+')
         pil = input('Coba lagi? [Y/n] ')
         if pil == 'Y' or pil == 'y':
             time.sleep(3)
@@ -148,4 +155,4 @@ while loop:
             loop = False
             time.sleep(3)
             print('')
-            print('Program berhenti...')
+            print('Program Selesai...')

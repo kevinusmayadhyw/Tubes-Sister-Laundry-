@@ -41,7 +41,7 @@ def laundrybojong():
 
     while True:
         a = input()
-        if (a = 'e'):
+        if a == 'e':
             break
         time.sleep(1)
 
