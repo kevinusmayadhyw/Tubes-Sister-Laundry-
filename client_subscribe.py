@@ -40,6 +40,9 @@ def laundrybojong():
     client.subscribe('datalaundry', qos=1)
 
     while True:
+        a = input()
+        if (a = 'e'):
+            break
         time.sleep(1)
 
     client.loop_stop()
