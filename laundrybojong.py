@@ -7,11 +7,9 @@ import os
 # Function untuk publish data
 def publish(nama, berat, paket):
     # IP broker yang akan dituju
-<<<<<<< Updated upstream
+
     ip = '26.106.194.199'
-=======
-    ip = '26.138.225.209'
->>>>>>> Stashed changes
+
     # Buat client baru
     client = mqtt.Client('Bojong', clean_session=False)
     # Buat koneksi ke broker

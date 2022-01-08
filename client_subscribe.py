@@ -41,11 +41,8 @@ def laundrybojong():
 
     while True:
         a = input()
-<<<<<<< Updated upstream
-        if a == 'e':
-=======
-        if (a == 'e'):
->>>>>>> Stashed changes
+
+        if a == 'exit':
             break
         time.sleep(1)
 
