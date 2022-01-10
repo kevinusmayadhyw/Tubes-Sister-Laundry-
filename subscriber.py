@@ -72,17 +72,21 @@ def laundrysoang():
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
         print(tabulate(datasoang, header, tablefmt='fancy_grid', showindex=no))
 
-    broker_address = '26.138.225.209'
+    broker_address = 'broker.emqx.io'
     client = mqtt.Client('laundrysoang', clean_session=True)
 
     client.on_connect = on_connect_laundrysoang
     client.on_message = on_message_laundrysoang
-    client.connect(broker_address, port=3333)
+    client.connect(broker_address, port=1883)
 
     client.loop_start()
     client.subscribe('datalaundry', qos=1)
 
     while True:
+        a = input()
+
+        if a == 'exit':
+            break
         time.sleep(1)
 
     client.loop_stop()
@@ -111,27 +115,30 @@ def perbandingan():
         print(tabulate(dataperbandingan, header, tablefmt='fancy_grid'))
         print('')
 
-    broker_address = '26.138.225.209'
+    broker_address = 'broker.emqx.io'
     client = mqtt.Client('BandingWaktu', clean_session=True)
 
     client.on_connect = on_connect_bandingwaktu
     client.on_message = on_message_bandingwaktu
-    client.connect(broker_address, port=4444)
+    client.connect(broker_address, port=1883)
 
     client.loop_start()
     client.subscribe('datalaundry', qos=1)
 
     while True:
+        a = input()
+
+        if a == 'exit':
+            break
         time.sleep(1)
 
     client.loop_stop()
-
 
 def menu():
     berhenti = False
     while not(berhenti):
         print("=================================================")
-        print("==                   Laundry                   ==")
+        print("==             Subscribe Laundry               ==")
         print("=================================================")
         print("== NO |                  Menu                  ==")
         print("== 1  | Laundry Bojong                         ==")
