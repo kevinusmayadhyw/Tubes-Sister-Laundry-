@@ -164,7 +164,6 @@ def menu():
             for i in range(5):
                 print(i+1)
                 time.sleep(1)
-
             os.system("cls")
         else:
             print("Input yang anda masukan tidak tersedia")
