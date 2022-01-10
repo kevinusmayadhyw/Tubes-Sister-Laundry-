@@ -8,12 +8,12 @@ import os
 def publish(nama, berat, paket):
     # IP broker yang akan dituju
 
-    ip = '26.106.194.199'
+    ip = 'broker.emqx.io'
 
     # Buat client baru
     client = mqtt.Client('Bojong', clean_session=False)
     # Buat koneksi ke broker
-    client.connect(ip, port=2222)
+    client.connect(ip, port=1883)
     # Proses komunikasi
     client.loop_start()
     print('')
