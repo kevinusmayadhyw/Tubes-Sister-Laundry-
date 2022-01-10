@@ -8,7 +8,7 @@ import os
 def publish(nama, berat, paket):
     # IP broker yang akan dituju
 
-    ip = 'localhost'
+    ip = '26.106.194.199'
 
     # Buat client baru
     client = mqtt.Client('Bojong', clean_session=False)
