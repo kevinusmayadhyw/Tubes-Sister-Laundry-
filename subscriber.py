@@ -149,10 +149,13 @@ def menu():
         pilihan = input("Masukan pilihan anda : ")
         if pilihan == "1":
             laundrybojong()
+            os.system('cls')
         elif pilihan == "2":
             laundrysoang()
+            os.system('cls')
         elif pilihan == "3":
             perbandingan()
+            os.system('cls')
         elif pilihan == "4":
             berhenti = True
             print("...")

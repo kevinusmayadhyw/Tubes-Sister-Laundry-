@@ -410,6 +410,7 @@ def publishBanding(nama, berat, tipe_paket):
 
 def menu_laundry():
     loop = True
+    l = []
     os.system('cls')
     print('')
     print('+-----------------------------------+')
@@ -424,18 +425,31 @@ def menu_laundry():
     print('| 2. Paket Standar                  |')
     print('| 3. Paket Cepat                    |')
     print('+-----------------------------------+')
-    while loop:
-        tipe = input('Jenis Paket : ')
-        tipe = tipe.lower()
-        if tipe == 'hemat' or tipe == 'standar' or tipe == 'cepat':
-            return nama, berat, tipe
-        elif tipe == '1':
-            return nama, berat, 'hemat'
-        elif tipe == '2':
-            return nama, berat, 'standar'
-        elif tipe == '3':
-            return nama, berat, 'cepat'
-        
+    tipe = input('Jenis Paket : ')
+    tipe = tipe.lower()
+    if tipe == 'hemat' or tipe == 'standar' or tipe == 'cepat':
+        l = [nama, berat, tipe]
+    elif tipe == '1':
+        l = [nama, berat, 'hemat']
+    elif tipe == '2':
+        l = [nama, berat, 'standar']
+    elif tipe == '3':
+        l = [nama, berat, 'cepat']
+    return l
+    os.system('cls')
+
+def ulang():
+    pil = input('Input lagi? [Y/n] ')
+    pil = pil.lower()
+    if pil == 'y':
+        time.sleep(3)
+        return True
+    elif pil == 'n':
+        time.sleep(3)
+        print('')
+        print('Program Selesai . . . . .')
+        return False
+    
 
 def menu():
     berhenti = False
@@ -450,15 +464,22 @@ def menu():
         print("== 4  | Keluar                                 ==")
         print("=================================================")
         pilihan = input("Masukan pilihan anda : ")
+        loop = True
         if pilihan == "1":
-            nama, berat, tipe = menu_laundry()
-            publishBojong(nama, berat, tipe)
+            while loop:
+                nama, berat, tipe = menu_laundry()
+                publishBojong(nama, berat, tipe)
+                loop = ulang()
         elif pilihan == "2":
-            nama, berat, tipe = menu_laundry()
-            publishSoang(nama, berat, tipe)
+            while loop:
+                nama, berat, tipe = menu_laundry()
+                publishSoang(nama, berat, tipe)
+                loop = ulang()
         elif pilihan == "3":
-            nama, berat, tipe = menu_laundry()
-            publishBanding(nama, berat, tipe)
+            while loop:
+                nama, berat, tipe = menu_laundry()
+                publishBanding(nama, berat, tipe)
+                loop = ulang()
         elif pilihan == "4":
             berhenti = True
             print("...")
