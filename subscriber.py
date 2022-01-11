@@ -39,6 +39,7 @@ def laundrybojong():
     client.loop_start()
     client.subscribe('datalaundry', qos=1)
 
+    print("Jika sudah bisa mengetik exit")
     while True:
         a = input()
 
@@ -82,6 +83,7 @@ def laundrysoang():
     client.loop_start()
     client.subscribe('datalaundry', qos=1)
 
+    print("Jika sudah bisa mengetik exit")
     while True:
         a = input()
 
@@ -125,6 +127,7 @@ def perbandingan():
     client.loop_start()
     client.subscribe('datalaundry', qos=1)
 
+    print("Jika sudah bisa mengetik exit")
     while True:
         a = input()
 

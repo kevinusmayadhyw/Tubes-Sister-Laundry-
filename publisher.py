@@ -470,16 +470,19 @@ def menu():
                 nama, berat, tipe = menu_laundry()
                 publishBojong(nama, berat, tipe)
                 loop = ulang()
+            os.system('cls')
         elif pilihan == "2":
             while loop:
                 nama, berat, tipe = menu_laundry()
                 publishSoang(nama, berat, tipe)
                 loop = ulang()
+            os.system('cls')
         elif pilihan == "3":
             while loop:
                 nama, berat, tipe = menu_laundry()
                 publishBanding(nama, berat, tipe)
                 loop = ulang()
+            os.system('cls')
         elif pilihan == "4":
             berhenti = True
             print("...")
