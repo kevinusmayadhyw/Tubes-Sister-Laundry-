@@ -28,6 +28,8 @@ def laundrybojong():
         print("")
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
         print(tabulate(databojong, header, tablefmt='fancy_grid', showindex=no))
+        print('')
+        print("'exit' untuk keluar")
 
     broker_address = 'broker.emqx.io'
     client = mqtt.Client('laundrybojong', clean_session=True)
@@ -71,6 +73,8 @@ def laundrysoang():
         print("")
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
         print(tabulate(datasoang, header, tablefmt='fancy_grid', showindex=no))
+        print('')
+        print("'exit' untuk keluar")
 
     broker_address = 'broker.emqx.io'
     client = mqtt.Client('laundrysoang', clean_session=True)
@@ -114,6 +118,7 @@ def perbandingan():
         header=['    Nama    ', '     Waktu Pengajuan     ', '  Berat  ', 'Jenis Paket', '    Penjemputan   ', '    Pengembalian   ', '      Total Harga      ']
         print(tabulate(dataperbandingan, header, tablefmt='fancy_grid'))
         print('')
+        print("'exit' untuk keluar")
 
     broker_address = 'broker.emqx.io'
     client = mqtt.Client('BandingWaktu', clean_session=True)
